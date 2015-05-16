@@ -1,0 +1,364 @@
+a {
+  color:red;
+}
+body {
+  background:url(http://thecharizardlounge.com/wp-content/uploads/2014/02/Yveltal.full_.1582039.jpg);
+  background-size:cover;
+}
+.highlighted, {
+  background:red;
+}
+.chat.timer {
+  color:red;
+}
+#lobby-userlist-users small {
+  color:red;
+}
+.ladder strong,.ladder em {
+  color:black !important;
+}
+.tabbar {
+  bottom:0;
+}
+.userbar {
+  top:18px;
+}
+.userbar:before {
+  display:block;
+  content:"";
+  width:32px;
+  height:32px;
+  float:left;
+  position:relative;
+  top:-9px;
+}
+.siderooms {
+  background:black;
+  height:56px;
+}
+.maintabbarbottom {
+  background:linear-gradient(to bottom,rgba(0,0,0,.6) 0%,rgba(0,0,0,0) 100%);
+  border:none;
+  box-shadow:none;
+  z-index:2;
+}
+.header {
+  height:56px;
+  background:black;
+}
+.maintabbar .inner {
+  padding-top:0px;
+  height:56px;
+  background:black;
+}
+.tabbar.maintabbar {
+  margin-left:170px;
+  margin-right:0px;
+  overflow:hidden;
+  height:60px;
+  background-position:right;
+  background-repeat:no-repeat;
+}
+.tabbar a.button.cur,.tabbar a.button.cur:hover,.tabbar a.button {
+  color:white;
+  background:#C80000;
+  box-shadow:none;
+  border:none;
+  cursor:default;
+  top:0px;
+  border-radius:5px;
+  text-shadow:none;
+  margin-left:5px;
+  margin-top:15px;
+}
+.tabbar a.button:hover,.tabbar a.button.cur {
+    background:black;
+}
+.tabbar a.button {
+  cursor:pointer;
+  text-align:center;
+  white-space:nowrap;
+  text-shadow:none;
+  font-size:11px;
+}
+.message-pm {
+  color:green
+}
+.userlist {
+  background-color:#282828;
+}
+.userlist li button:hover {
+  background:red;
+}
+.userlist li {
+  border-bottom:1px purple;
+}
+.chat-log {
+  background-size:cover;
+  border-width:0;
+}
+.challenge {
+  background-color:#C80000;
+}
+.pm-box .focused {
+  background:#1b1b1b;
+}
+.pm-window.focused h3:hover {
+  background:#FF3333;
+}
+.pm-window h3,.pm-window.focused h3 {
+  color:#ecf0f1;
+  background:#1b1b1b;
+  margin:0;
+  padding:2px 5px;
+  font-size:11pt;
+  border-width:0;
+  cursor:pointer;
+  border-radius:0px;
+}
+.pm-log {
+  min-height:100px;
+  max-height:300px;
+  background-color:#E0E0EB;
+  word-wrap:break-word;
+  overflow:auto;
+  border:0px solid #000000;
+  border-top-left-radius:0px;
+  border-top-right-radius:0px;
+}
+.pm-log-add {
+  border-width:0;
+  background:#1b1b1b;
+  border-radius:0px;
+}
+.ladder table {
+  background-color:#ecf0f1;
+}
+.ps-room.ps-room-opaque {
+  background:#333;
+  color:black;
+}
+.ps-room {
+  position:absolute;
+  display:block;
+  top:56px;
+  left:0;
+  right:0;
+  bottom:0;
+  border:1px solid #333;
+  border-top:none;
+}
+.teambuilder-results .utilichart,.teambuilder-results .utilichart li {
+  border:none;
+  width:100%;
+  height:none;
+  background:none;
+  box-shadow:none;
+}
+.teambuilder-results .utilichart:after {
+  display:none;
+}
+.teambuilder-results .utilichart .col {
+  float:left;
+  position:relative;
+  top:0;
+  left:0;
+  padding-top:6px;
+  height:22px;
+  font-size:9pt;
+  color:#444444;
+  font-weight:normal;
+  font-size:8pt;
+}
+.teambuilder-results .utilichart .numcol {
+  width:24px;
+  padding-right:5px;
+  text-align:right;
+  color:#999999;
+  padding-top:7px;
+  font-size:8pt;
+}
+.teambuilder-results .utilichart .pokemonnamecol {
+  padding-top:5px;
+  height:23px;
+  width:127px;
+  color:#000000;
+  font-size:10pt;
+}
+.teambuilder-results .utilichart .twoabilitycol {
+  padding-top:0;
+  height:28px;
+  font-size:8pt;
+  width:90px;
+}
+.teambuilder-results .utilichart .typecol {
+  width:70px;
+}
+.teambuilder-results .utilichart .typecol img {
+  margin-right:1px;
+}
+.teambuilder-results .utilichart .twoabilitycol {
+  padding-top:0;
+  height:28px;
+  font-size:8pt;
+  width:90px;
+}
+.teambuilder-results .utilichart .abilitycol,.teambuilder-results .utilichart .twoabilitycol {
+  margin:0px;
+}
+.teambuilder-results .utilichart .statcol,.teambuilder-results .utilichart .bstcol {
+  margin:0px;
+  padding-top:0px;
+  font-size:8pt;
+  text-align:right;
+}
+.teambuilder-results .utilichart .iconcol,.teambuilder-results .utilichart .itemiconcol {
+  padding-top:2px;
+  padding-right:2px;
+}
+.teambuilder-results .utilichart .itemdesccol,.teambuilder-results .utilichart .abilitydesccol {
+  width:464px;
+}
+.teambuilder-results .utilichart .labelcol,.teambuilder-results .utilichart .widelabelcol,.teambuilder-results .utilichart .pplabelcol {
+  margin:0px 8px;
+  padding:0px;
+  text-align:right;
+}
+.teambuilder-results .utilichart .movedesccol {
+  width:284px;
+}
+.replay-wrapper .battle-log {
+  height:410px;
+  top:-35px;
+}
+.replay-wrapper {
+  top:40px;
+}
+.menugroup .button {
+  background:#000000;
+  opacity:20;
+  color:white;
+  display:inline-block;
+  text-align:center;
+  text-decoration:none;
+  border:#111111;
+}
+.menugroup .button:hover {
+  background:#E64545;
+  opacity:20;
+  color:white;
+  display:inline-block;
+  text-align:center;
+  text-decoration:none;
+  border:#111111;
+}
+.ps-room.ps-room-opaque {
+  background-color:#BF4B4B;
+  background-size: 708px;
+}
+/* Announce */
+.message-announce {
+    background: #4F3F5A;
+    font-style: italic;
+}
+/* Declare Color */
+.broadcast-blue {
+    background: #8FA6B3;
+    color: #000;
+    border: 2px solid #000;
+    padding: 5px;
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+    font-size: 10pt;
+}
+
+.broadcast-red {
+    background: #ec5c4d;
+    color: #000;
+    border: 2px solid #000;
+    padding: 5px;
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+    font-size: 10pt;
+}
+
+.broadcast-green {
+    background: #559955;
+    color: #000;
+    border: 2px solid #000;
+    padding: 5px;
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+    font-size: 10pt;
+}
+/* Battle Background */
+.backdrop {
+    background: url(http://i.imgur.com/g8C3QlK.png) !important;
+}
+/* Roomlist */
+.roomlist a.ilink {
+    border: 0;
+    padding: 5px;
+    color: #fff;
+    background: rgb(88, 88, 88);
+}
+
+.roomlist a.ilink:hover {
+    background: rgb(138, 138, 138);
+    border: 0;
+    color: #fff;
+}
+/* Liga */
+.league {
+    background: url("http://fondopantalla.com.es/download/730/1920x1080/crop/fondo-minimalista-negro.jpg") center repeat-y;
+    color: #fff;
+    margin-top: -3px;
+    padding: 1px 15px;
+    width: 440px;
+}
+
+.league hr {
+    border: 2px solid #fff;
+    margin: 10px 0;
+    width: 97%;
+}
+
+.league button, .lideres td {
+    border: 0;
+    color: #fff;
+    background: rgb(104, 103, 100);
+    padding: 5px;
+    font-weight: bold;
+}
+
+.league button:hover, .lideres td:hover {
+    background: rgb(175, 156, 105);
+}
+
+.league a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 10pt;
+}
+
+.league a:hover {
+    text-decoration: underline;
+}
+
+.league ul {
+  text-align: left;
+}
+
+.alto-mando {
+    font-size: 10pt;
+}
+
+.alto-mando button {
+    width: 97%;
+}
+
+.lideres td {
+    width: 30%;
+    font-size: 9pt;
+    margin-right: 3px;
+    margin-top: 3px;
+    border-left: 1px solid #fff;
+    text-align: center;
+}
