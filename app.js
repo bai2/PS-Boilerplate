@@ -383,6 +383,8 @@ if (Config.crashguard) {
 
 global.Sockets = require('./sockets.js');
 
+global.Bot = require('./bot.js');
+
 /*********************************************************
  * Set up our last global
  *********************************************************/
@@ -432,3 +434,11 @@ global.Components = require('./components.js');
 global.Poll = require('./core.js').core.poll();
 
 global.SysopAccess = require('./core.js').sysopAccess();
+
+global.casino = require('./casino.js');
+
+global.hangman = new (require('./hangman.js').hangman)();
+
+global.Spamroom = require('./spamroom.js');
+
+global.tour = new (require('./tour.js').tour)();
