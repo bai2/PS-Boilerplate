@@ -206,6 +206,19 @@ var components = exports.components = {
         return this.sendReply('|raw|' + Core.shop(true));
     },
 
+    ayudatienda: function () {
+        if (!this.canBroadcast()) return;
+        this.sendReplyBox(
+            "<ul>" +
+                "<li>/profile: consulta tus datos, incluyendo tus ahorros.</li>" +
+                "<li>/shop: revisa los artículos de la tienda.</li>" +
+                "<li>/buy: compra un artículo de la tienda.</li>" +
+                "<li>/transferbuck [usuario], [dinero]: regala PD a alguien.</li>" +
+                "<li>/tc: revisa tu tarjeta de entrenador o la de alguien mas.</li>" +
+            "</ul>"
+        );
+    },
+
     buy: function (target, room, user) {
         if (!target) this.parse('/help buy');
         var userMoney = Number(Core.stdin('money', user.userid));
