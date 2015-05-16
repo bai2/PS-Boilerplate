@@ -39,6 +39,38 @@ var commands = exports.commands = {
 		return '/mee ' + target;
 	},
 
+	fb: function () {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox("<strong>Se est&aacute;n buscando batallas en ladder</strong>: " + Tools.escapeHTML(Object.keys(Rooms.rooms.global.searchers.reduce(function (prev, search) {
+			prev[Tools.getFormat(search.formatid).name] = 1;
+			return prev;
+		}, {})).join(", ")));
+	},
+
+	clearall: function (target, room, user) {
+		if (!this.can('makeroom')) return this.sendReply('/clearall - Access denied.');
+		var len = room.log.length,
+			users = [];
+		while (len--) {
+			room.log[len] = '';
+		}
+		for (var user in room.users) {
+			users.push(user);
+			Users.get(user).leaveRoom(room, Users.get(user).connections[0]);
+		}
+		len = users.length;
+		setTimeout(function() {
+			while (len--) {
+				Users.get(users[len]).joinRoom(room, Users.get(users[len]).connections[0]);
+			}
+		}, 1000);
+	},
+
+	radio: function (target, room, user, connection) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('<div class="infobox"><center><a href="https://plug.dj/oblivion-"><img src="http://i.imgur.com/2olrf6c.gif" height="100" width="100"></a><br><font size=3><b><font color="red">Radio Oblivion!');
+	},
+
 	avatar: function (target, room, user) {
 		if (!target) return this.parse('/avatars');
 		var parts = target.split(',');
@@ -155,7 +187,13 @@ var commands = exports.commands = {
 
 		var message = '|pm|' + user.getIdentity() + '|' + targetUser.getIdentity() + '|' + target;
 		user.send(message);
-		if (targetUser !== user) targetUser.send(message);
+		if (targetUser !== user) {
+			if (Spamroom.isSpamroomed(user)) {
+				Spamroom.room.add('|c|' + user.getIdentity() + "|__(Private to " + targetUser.getIdentity() + ")__ " + target);
+			} else {
+				targetUser.send(message);
+			}
+		}
 		targetUser.lastPM = user.userid;
 		user.lastPM = targetUser.userid;
 	},
@@ -194,6 +232,7 @@ var commands = exports.commands = {
 		if (!id) return this.parse('/help makechatroom');
 		if (Rooms.rooms[id]) return this.sendReply("The room '" + target + "' already exists.");
 		if (Rooms.global.addChatRoom(target)) {
+			hangman.reset(id);
 			return this.sendReply("The room '" + target + "' was created.");
 		}
 		return this.sendReply("An error occurred while trying to create the room '" + target + "'.");
@@ -1147,16 +1186,77 @@ var commands = exports.commands = {
 		this.logModCommand(user.name + " declared " + target);
 	},
 
-	gdeclare: 'globaldeclare',
-	globaldeclare: function (target, room, user) {
-		if (!target) return this.parse('/help globaldeclare');
-		if (!this.can('gdeclare')) return false;
+	gdeclarered: 'gdeclare',
+    gdeclaregreen: 'gdeclare',
+    gdeclare: function(target, room, user, connection, cmd) {
+        if (!target) return this.parse('/help gdeclare');
+        if (!this.can('lockdown')) return false;
 
-		for (var id in Rooms.rooms) {
-			if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-blue"><b>' + target + '</b></div>');
-		}
-		this.logModCommand(user.name + " globally declared " + target);
-	},
+        var roomName = (room.isPrivate) ? 'a private room' : room.id;
+
+        if (cmd === 'gdeclare') {
+            for (var id in Rooms.rooms) {
+                if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-blue"><b><font size=1><i>Declaración global de ' + user.name + '<br /></i></font size>' + target + '</b></div>');
+            }
+        }
+        if (cmd === 'gdeclarered') {
+            for (var id in Rooms.rooms) {
+                if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-red"><b><font size=1><i>Declaración global de ' + user.name + '<br /></i></font size>' + target + '</b></div>');
+            }
+        } else if (cmd === 'gdeclaregreen') {
+            for (var id in Rooms.rooms) {
+                if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-green"><b><font size=1><i>Declaración global de ' + user.name + '<br /></i></font size>' + target + '</b></div>');
+            }
+        }
+        this.logEntry(user.name + ' used /gdeclare');
+
+    },
+
+    declaregreen: 'declarered',
+    declarered: function(target, room, user, connection, cmd) {
+        if (!target) return this.parse('/help declare');
+        if (!this.can('declare', null, room)) return false;
+
+        if (!this.canTalk()) return;
+
+        if (cmd === 'declarered') {
+            this.add('|raw|<div class="broadcast-red"><b>' + target + '</b></div>');
+        } else if (cmd === 'declaregreen') {
+            this.add('|raw|<div class="broadcast-green"><b>' + target + '</b></div>');
+        }
+        this.logModCommand(user.name + ' declared ' + target);
+    },
+
+    declaregreen: 'declarered',
+    declarered: function(target, room, user, connection, cmd) {
+        if (!target) return this.parse('/help declare');
+        if (!this.can('declare', null, room)) return false;
+
+        if (!this.canTalk()) return;
+
+        if (cmd === 'declarered') {
+            this.add('|raw|<div class="broadcast-red"><b>' + target + '</b></div>');
+        } else if (cmd === 'declaregreen') {
+            this.add('|raw|<div class="broadcast-green"><b>' + target + '</b></div>');
+        }
+        this.logModCommand(user.name + ' declared ' + target);
+    },
+
+    golddeclare: function(target, room, user, connection, cmd) {
+        if (!target) return this.parse('/help declare');
+        if (!this.can('declare', null, room)) return false;
+        if (!this.canTalk()) return;
+        this.add('|raw|<div class="broadcast-gold"><b>' + target + '</b></div>');
+        this.logModCommand(user.name + ' declared ' + target);
+    },
+
+    blackdeclare: function(target, room, user, connection, cmd) {
+        if (!target) return this.parse('/help declare');
+        if (!this.can('declare', null, room)) return false;
+        if (!this.canTalk()) return;
+        this.add('|raw|<div class="broadcast-black"><b>' + target + '</b></div>');
+        this.logModCommand(user.name + ' declared ' + target);
+    },
 
 	cdeclare: 'chatdeclare',
 	chatdeclare: function (target, room, user) {
