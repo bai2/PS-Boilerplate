@@ -442,3 +442,11 @@ global.hangman = new (require('./hangman.js').hangman)();
 global.Spamroom = require('./spamroom.js');
 
 global.tour = new (require('./tour.js').tour)();
+
+global.Clans = require('./clans.js');
+
+global.War = require('./war.js');
+
+global.teamTour = require('./teamtour.js');
+
+
