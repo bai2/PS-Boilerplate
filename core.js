@@ -203,12 +203,12 @@ var core = exports.core = {
 
     shop: function (showDisplay) {
         var shop = [
-            ['Symbol', 'Buys a custom symbol to go infront of name and puts you at top of userlist. (Temporary until restart, certain symbols are blocked)', 5],
-            ['Fix', 'Buys the ability to alter your current custom avatar or trainer card. (don\'t buy if you have neither)', 10],
-            ['Poof', 'Buy a poof message to be added into the pool of possible poofs.', 15],
-            ['Avatar', 'Buys an custom avatar to be applied to your name (You supply. Images larger than 80x80 may not show correctly)', 30],
-            ['Trainer', 'Buys a trainer card which shows information through a command.', 50],
-            ['Room', 'Buys a chatroom for you to own. (within reason, can be refused)', 100]
+            ['Symbol', 'Un simbolo personalizado junto a tu nick (Temporal hasta el reinicio).', 5],
+            ['Fix', 'Compras la habilidad de cambiar tu avatar personalizado (No comprar si no posee uno).', 10],
+            ['Poof', 'Compra un ensaje de salida que sera añadido a los posibles mensajes de salida.', 15],
+            ['Avatar', 'Un avatar personalizado (Imagenes de tamaño mayor a 80 x 80 podrian no mostrarse correctamente).', 30],
+            ['Trainer', 'Una ficha de entrenador.', 50],
+            ['Room', 'Una sala chat (Bajo ciertos criterios, puede ser rechazada).', 100]
         ];
 
         if (showDisplay === false) {
