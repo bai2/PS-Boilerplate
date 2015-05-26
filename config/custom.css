@@ -1,6 +1,11 @@
 /*Header*/
+.header .logo {
+display:none;
+}
+
 #header{
-background:url("http://www.lonuevodehoy.com/wp-content/uploads/2012/10/fondo-negro.jpg")
+	background: url(http://i.imgur.com/PqSWhZp.png?1) no-repeat;
+	background-color:#000
 }
 
 /*Main BG*/
@@ -262,32 +267,11 @@ color: #eff;
     padding: 5px;
 }
 
-
-/* Tienda */
-
-.shop {
-	background: url("http://i.imgur.com/qSLGtMy.png") center repeat-y;
-	color: #fff;
-	margin-top: -4px;
-	width: 100%;
-}
-
-.shop table {
-	width: 438px;
-}
-
-.shop td {
-	height: 25px;	
-}
-
-.shop button {
-	width=100%;
-	height=100%;
-	border: 0px;
-	background: #457779;
-	color: #fff;
-}
-
-.shop button:hover {
-	background: rgb(114, 148, 147);
+/* Welcome Message */
+.welcome {
+    background: url(http://orig00.deviantart.net/2799/f/2015/135/0/8/sin_t__tulo_b1_by_somnifero-d8th6gk.png) center repeat-y;
+    color: #fff;
+    margin-top: -3px;
+    padding: 1px 15px;
+    width: 440px;
 }
