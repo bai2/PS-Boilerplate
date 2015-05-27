@@ -2639,48 +2639,6 @@ var commands = exports.commands = {
 		);
 	},
 	
-	cerrarsalaclan: 'closeclanroom',
-	closeclanroom: function (target, room, user) {
-		var permisionClan = false;
-		var clanRoom = Clans.findClanFromRoom(room.id);
-		if (!clanRoom) return this.sendReply("Esta no es una sala de Clan.");
-		var clanUser = Clans.findClanFromMember(user.name);
-		if (clanUser && toId(clanRoom) === toId(clanUser)) {
-			var clanUserid = toId(clanUser);
-			var iduserwrit = toId(user.name);
-			var perminsionvalue = Clans.authMember(clanUserid, iduserwrit);
-			if (perminsionvalue >= 2) permisionClan = true;
-			
-		} 
-		if (!permisionClan && !this.can('clans')) return false;
-		if (!Clans.closeRoom(room.id, clanRoom))
-			this.sendReply("Error al intentar cerrar la sala. Es posible que ya esté cerrada.");
-		else {
-			this.addModCommand("Esta sala ha sido cerrada a quienes no sean miembros de " + clanRoom + " por " + user.name);
-		}
-	},
-	
-	abrirsalaclan: 'openclanroom',
-	openclanroom: function (target, room, user) {
-		var permisionClan = false;
-		var clanRoom = Clans.findClanFromRoom(room.id);
-		if (!clanRoom) return this.sendReply("Esta no es una sala de Clan.");
-		var clanUser = Clans.findClanFromMember(user.name);
-		if (clanUser && toId(clanRoom) === toId(clanUser)) {
-			var clanUserid = toId(clanUser);
-			var iduserwrit = toId(user.name);
-			var perminsionvalue = Clans.authMember(clanUserid, iduserwrit);
-			if (perminsionvalue >= 2) permisionClan = true;
-			
-		} 
-		if (!permisionClan && !this.can('clans')) return false;
-		if (!Clans.openRoom(room.id, clanRoom))
-			this.sendReply("Error al intentar abrir la sala. Es posible que ya esté abierta.");
-		else {
-			this.addModCommand("Esta sala ha sido abierta a todos los usuarios por " + user.name);
-		}
-	},
-
 	a: function (target, room, user) {
 		if (!this.can('rawpacket')) return false;
 		// secret sysop command
